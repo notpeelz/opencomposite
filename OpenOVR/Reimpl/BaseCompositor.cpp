@@ -252,7 +252,8 @@ ovr_enum_t BaseCompositor::Submit(EVREye eye, const Texture_t* texture, const VR
 		eyeState = rightEyeSubmitted;
 
 	if (eyeState) {
-		OOVR_ABORT("Eye already submitted!");
+		OOVR_SOFT_ABORT("Eye already submitted!");
+		return VRCompositorError_None;
 	}
 
 	if (eye == Eye_Left)
